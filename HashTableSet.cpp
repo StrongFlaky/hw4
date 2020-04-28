@@ -4,17 +4,30 @@
  * Implement the HashTableSet methods correctly
  */
 unsigned int HashTableSet::size() {
-    /* YOUR CODE HERE */
+    return ht.size();
 }
 
 void HashTableSet::insert(string s) {
-    /* YOUR CODE HERE */
+    bool duplicate = find(s);
+    if(!duplicate){
+        ht.insert(s);
+    }
 }
 
 void HashTableSet::remove(const string & s) {
-    /* YOUR CODE HERE */
+    for(auto check = ht.begin(); check != ht.end(); check++){
+        if(*check == s){
+            ht.erase(check);
+            return;
+        }
+    }
 }
 
 bool HashTableSet::find(const string & s) {
-    /* YOUR CODE HERE */
+    for(auto check = ht.begin(); check != ht.end(); check++){
+        if(*check == s){
+           return true;
+        }
+    }
+    return false;
 }

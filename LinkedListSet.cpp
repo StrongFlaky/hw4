@@ -1,20 +1,40 @@
 #include "Set.h"
+#include <iostream>
 
 /**
  * Implement the LinkedListSet methods correctly
  */
 unsigned int LinkedListSet::size() {
-    /* YOUR CODE HERE */
+    return linked.size();
 }
 
 void LinkedListSet::insert(string s) {
-    /* YOUR CODE HERE */
+    bool duplicate = find(s);
+    if(!duplicate){
+        linked.push_back(s);
+    }
 }
 
 void LinkedListSet::remove(const string & s) {
-    /* YOUR CODE HERE */
+    bool check = find(s);
+    if(check){
+        linked.remove(s);
+    }
+
+    /*for(auto begin = linked.begin(); begin != linked.end(); begin++){
+        if(*begin == s){
+           linked.erase(begin);
+           return;
+        }
+    }*/
+    
 }
 
 bool LinkedListSet::find(const string & s) {
-    /* YOUR CODE HERE */
+    for(auto begin = linked.begin(); begin != linked.end(); begin++){
+        if(*begin == s){
+           return true;
+        }
+    }
+    return false;
 }
